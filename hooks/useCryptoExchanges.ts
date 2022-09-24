@@ -11,9 +11,10 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 const CoinGeckoAPIClient = new CoinGeckoAPI();
 
 export interface IExchangesAllResponse {
-  status?: 200 | 500 | 404 | number
-  message?: string
-  data?: any[]
+  code: 200 | 500 | 404 | number
+  message: string
+  data: any[],
+  success: boolean
 }
 
 const useCryptoExchanges =  () => {
@@ -25,12 +26,12 @@ const useCryptoExchanges =  () => {
   const fetchCrypoExchanges = useCallback(async() => {
     try {
       let response = await CoinGeckoAPIClient.exchanges.all(params) as IExchangesAllResponse
-      if( response.status === 200 && response.data ) setCryptoExchanges(response.data)
+      if( response.code === 200 && response.data ) setCryptoExchanges(response.data)
     }
     catch (error:any) {
       setError(error)
     } finally {
-      setLoading(false)
+      setTimeout(()=> setLoading(false), 1000)
     }
   },[params])
   
