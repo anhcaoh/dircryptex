@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit"
-import {ICryptoExchange} from "@/components/CryptoExchange"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { ICryptoExchange } from "@/components/CryptoExchange"
 
 interface ListingSliceState {
   cryptoExchanges: ICryptoExchange[]
@@ -7,10 +7,15 @@ interface ListingSliceState {
 const initialState: ListingSliceState = {
   cryptoExchanges: []
 }
-const searchSlice = createSlice({
+const listingSlice = createSlice({
   name: 'listingSlice',
   initialState,
-  reducers: {}
+  reducers: {
+    getCryptoExchanges: (state, action:PayloadAction<ICryptoExchange[]>) => {
+       //INFO: this does not actually mutate `state` here because Immer is at work
+      state.cryptoExchanges = action.payload
+    }
+  }
 });
-
-export default searchSlice
+export const { getCryptoExchanges } = listingSlice.actions
+export default listingSlice.reducer
