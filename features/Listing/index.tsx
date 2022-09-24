@@ -1,6 +1,8 @@
 import CryptoExchange, { ICryptoExchange } from '@/components/CryptoExchange'
+import Filler from '@/components/Fillter'
 import useCryptoExchanges from '@/hooks/useCryptoExchanges'
-import { Row, Skeleton } from 'antd'
+import { Card, Col, Row, Skeleton, Typography } from 'antd'
+import Meta from 'antd/lib/card/Meta'
 
 const Listing = () => {
   const CryptoExchanges = ({
@@ -14,6 +16,9 @@ const Listing = () => {
         {exchanges.splice(0, 10).map((exchange) => {
           return <CryptoExchange key={exchange.id} info={exchange} />
         })}
+        {/* INFO: Filler for empty space*/}
+        <Filler />
+        <Filler />
       </Row>
     )
   }

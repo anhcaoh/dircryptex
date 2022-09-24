@@ -1,6 +1,12 @@
+.name {
+  min-height: 25px;
+}
 .country {
   min-height: 22px;
 }
 .description{
   min-height: 44px;
+}
+.url{
+  min-height: 22px;
 }

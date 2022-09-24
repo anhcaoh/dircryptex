@@ -1,4 +1,4 @@
-import { Avatar, Card, Col, Typography } from 'antd'
+import { Avatar, Card, Col, Tag, Typography } from 'antd'
 import Meta from 'antd/lib/card/Meta'
 import styles from './CryptoExchange.module.css'
 
@@ -31,7 +31,24 @@ const CryptoExchange = ({
       <Card>
         <Meta
           avatar={<Avatar src={image} />}
-          title={name}
+          title={
+            <div className={styles.name}>
+              {name}{' '}
+              <Tag
+                color={
+                  trust_score_rank < 3
+                    ? 'volcano'
+                    : trust_score_rank < 5
+                    ? 'gold'
+                    : trust_score_rank >= 5 && trust_score_rank < 7
+                    ? 'cyan'
+                    : 'success'
+                }
+              >
+                {trust_score_rank} / 10
+              </Tag>
+            </div>
+          }
           description={
             <>
               <Typography.Paragraph className={styles.country}>
@@ -47,6 +64,9 @@ const CryptoExchange = ({
               >
                 {description}
               </Typography.Paragraph>
+              <a href={url} rel="noreferrer" target="_blank">
+                <u>{url}</u> →
+              </a>
             </>
           }
         />
