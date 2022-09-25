@@ -25,8 +25,7 @@ const Layout = <T extends ILayoutProps>({
       <Head />
       <main className={styles.main}>
         <LayoutVariant>
-          <Branding styles={styles} />
-          {slot}
+          <Branding styles={styles} CTA={slot} />
           {children}
         </LayoutVariant>
         <Footer styles={styles}></Footer>

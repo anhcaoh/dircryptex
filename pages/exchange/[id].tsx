@@ -13,9 +13,12 @@ const Exchange = () => {
       variant="exchange"
       slot={
         <Button
-          type="text"
           onClick={goBackQuitely}
-          style={{ margin: '8px 8px 8px 0' }}
+          style={{
+            marginLeft: '-9.75rem',
+            marginTop: '-1rem',
+            position: 'absolute',
+          }}
         >
           ← Go back
         </Button>

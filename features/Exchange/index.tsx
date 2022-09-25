@@ -15,12 +15,12 @@ const ExchangeFeat = <T extends IExchangeFeatProps>({ id }: T) => {
   )
   if (!exchangeFromStoreById)
     return (
-      <Typography style={{ marginTop: '24px' }}>
+      <Typography style={{ marginTop: '2.5rem' }}>
         No exchange found by ID <code>{id}</code>
       </Typography>
     )
   return (
-    <Row>
+    <Row style={{ marginTop: '2.5rem' }}>
       <CryptoExchange
         id={id}
         info={exchangeFromStoreById}
