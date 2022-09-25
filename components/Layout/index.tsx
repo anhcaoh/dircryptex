@@ -1,12 +1,13 @@
 import LayoutExchange from './Exchange'
 import LayoutListing from './Listing'
+import Branding from '@/components/Branding'
+import Head from '@/components/Head'
+import Footer from '@/components/Footer'
 import styles from './Layout.module.scss'
-import Head from '../Head'
-import Image from 'next/image'
-import { Footer } from 'antd/lib/layout/layout'
 
 export interface ILayoutProps<T = any> {
   variant?: 'listing' | 'exchange'
+  slot?: JSX.Element | JSX.Element[]
   children?: JSX.Element | JSX.Element[] | T
 }
 export const LAYOUT_VARIANTS = {
@@ -15,6 +16,7 @@ export const LAYOUT_VARIANTS = {
 }
 const Layout = <T extends ILayoutProps>({
   variant = 'listing',
+  slot,
   children,
 }: T) => {
   const LayoutVariant = LAYOUT_VARIANTS[variant]
@@ -22,26 +24,12 @@ const Layout = <T extends ILayoutProps>({
     <div className={styles.container}>
       <Head />
       <main className={styles.main}>
-        <LayoutVariant>{children}</LayoutVariant>
-        <Footer>
-          <footer className={styles.footer}>
-            <a
-              href="https://www.coingecko.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Powered by{' '}
-              <span className={styles.logo}>
-                <Image
-                  src="https://static.coingecko.com/s/coingecko-logo-8903d34ce19ca4be1c81f0db30e924154750d208683fad7ae6f2ce06c76d0a56.png"
-                  alt="Coingecko Logo"
-                  width={200}
-                  height={50}
-                />
-              </span>
-            </a>
-          </footer>
-        </Footer>
+        <LayoutVariant>
+          <Branding styles={styles} />
+          {slot}
+          {children}
+        </LayoutVariant>
+        <Footer styles={styles}></Footer>
       </main>
     </div>
   )

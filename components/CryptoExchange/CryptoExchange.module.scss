@@ -1,5 +1,6 @@
 .card {
   padding: 8px;
+  min-width: 475px;
 }
 .name {
   min-height: 25px;
@@ -11,9 +12,7 @@
 }
 .country {
   min-height: 22px;
-}
-.description{
-  min-height: 44px;
+  margin-top: 1em
 }
 .url{
   min-height: 22px;

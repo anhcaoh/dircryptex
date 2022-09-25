@@ -1,4 +1,4 @@
-import { Typography } from 'antd'
+import { Space, Typography } from 'antd'
 
 const Branding = ({ styles, title, description }: any) => {
   return (

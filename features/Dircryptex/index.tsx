@@ -1,23 +1,18 @@
 // INFO: `Dircryptex` as main feature app component
 // as the main orchestration layer
+// in most cases, there are more features to add-on here
+// but for this we're only Listing, so comps might look redundent i.e. <Dircryptex><Listing /></Dircryptex>
 
-import Branding from '@/components/Branding'
-import Listing from '@/features/Listing'
-import { Col } from 'antd'
+import ListingFeat from '@/features/Listing'
 
 export interface IDircryptexProps {
-  styles?: {
-    title?: string
-    description?: string
-  }
+  title?: string
 }
-const Dircryptex = ({ styles = {} }: IDircryptexProps) => {
+const Dircryptex = () => {
   return (
     <>
-      <Col span={24}>
-        <Branding styles={styles} />
-        <Listing />
-      </Col>
+      <ListingFeat />
+      {/* could have more features here. e.g. search */}
     </>
   )
 }

@@ -1,14 +1,12 @@
-import Head from 'next/head'
-const HeadTag = () => {
+import HeadTag from 'next/head'
+const Head = () => {
   return (
-    <>
-      <Head>
-        <title>Dircryptex: Directory of Top Crypto Exchanges</title>
-        <meta name="title" content="Dircryptex" />
-        <meta name="description" content="Directory of Top Crypto Exchanges" />
-        <link rel="icon" href="https://www.coingecko.com/favicon.ico" />
-      </Head>
-    </>
+    <HeadTag>
+      <title>Dircryptex: Directory of Top Crypto Exchanges</title>
+      <meta name="title" content="Dircryptex" />
+      <meta name="description" content="Directory of Top Crypto Exchanges" />
+      <link rel="icon" href="https://www.coingecko.com/favicon.ico" />
+    </HeadTag>
   )
 }
-export default HeadTag
+export default Head
