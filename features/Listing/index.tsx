@@ -13,8 +13,14 @@ const Listing = () => {
     if (!exchanges?.length) return null
     return (
       <Row>
-        {exchanges.splice(0, 10).map((exchange) => {
-          return <CryptoExchange key={exchange.id} info={exchange} />
+        {exchanges.splice(0, 10).map((exchange, index) => {
+          return (
+            <CryptoExchange
+              key={exchange.id}
+              number={index + 1}
+              info={exchange}
+            />
+          )
         })}
         {/* INFO: Filler for empty space*/}
         <Filler />

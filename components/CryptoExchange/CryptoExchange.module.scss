@@ -1,5 +1,14 @@
+.card {
+  padding: 8px;
+}
 .name {
   min-height: 25px;
+}
+.rank {
+  font-family: ui-monospace;
+  font-size: x-large;
+  padding-top: 0.5rem;
+  text-align: center;
 }
 .country {
   min-height: 22px;

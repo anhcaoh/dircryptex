@@ -3,6 +3,7 @@ import Meta from 'antd/lib/card/Meta'
 import styles from './CryptoExchange.module.scss'
 
 export interface ICryptoExchange {
+  number: number
   info: {
     id: string
     name: string
@@ -15,22 +16,19 @@ export interface ICryptoExchange {
   }
 }
 const CryptoExchange = ({
-  info: {
-    id,
-    name,
-    description,
-    country,
-    url,
-    image,
-    trust_score,
-    trust_score_rank,
-  },
+  number,
+  info: { id, name, description, country, url, image, trust_score_rank },
 }: ICryptoExchange) => {
   return (
-    <Col span={8} id={id}>
-      <Card>
+    <Col xs={24} sm={16} md={12} lg={8} id={id}>
+      <Card className={styles.card}>
         <Meta
-          avatar={<Avatar src={image} />}
+          avatar={
+            <>
+              <Avatar src={image} />
+              <div className={styles.rank}>#{number}</div>
+            </>
+          }
           title={
             <div className={styles.name}>
               {name}
