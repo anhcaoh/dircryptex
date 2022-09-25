@@ -1,5 +1,5 @@
+import Layout from '@/components/Layout'
 import Dircryptex from '@/features/Dircryptex'
-import { Layout } from 'antd'
 import { Footer } from 'antd/lib/layout/layout'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -16,12 +16,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="https://www.coingecko.com/favicon.ico" />
       </Head>
 
-      <Layout>
-        <Layout>
-          <main className={styles.main}>
-            <Dircryptex styles={styles} />
-          </main>
-        </Layout>
+      <Layout variant="listing">
+        <main className={styles.main}>
+          <Dircryptex styles={styles} />
+        </main>
         <Footer>
           <footer className={styles.footer}>
             <a

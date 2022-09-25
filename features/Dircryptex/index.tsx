@@ -2,7 +2,7 @@
 // as the main orchestration layer
 
 import Listing from '@/features/Listing'
-import { Col, Row, Space } from 'antd'
+import { Col } from 'antd'
 
 export interface IDircryptexProps {
   styles?: {

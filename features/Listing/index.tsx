@@ -1,8 +1,7 @@
 import CryptoExchange, { ICryptoExchange } from '@/components/CryptoExchange'
 import Filler from '@/components/Fillter'
 import useCryptoExchanges from '@/hooks/useCryptoExchanges'
-import { Card, Col, Row, Skeleton, Typography } from 'antd'
-import Meta from 'antd/lib/card/Meta'
+import { Row, Skeleton } from 'antd'
 
 const Listing = () => {
   const CryptoExchanges = ({
@@ -29,6 +28,7 @@ const Listing = () => {
     )
   }
   const [cryptoExchanges, loading, error] = useCryptoExchanges()
+  if (error) return <h2>Something went wrong. {error?.message}</h2>
   return (
     <Skeleton loading={loading}>
       <CryptoExchanges exchanges={cryptoExchanges} />

@@ -1,12 +1,23 @@
-@import './var';
 @media (prefers-color-scheme: dark) {
+  :root{
+    --dark-border-color: $dark_border_color;
+    --dark-background-color: $dark_background_color;
+    --dark-text-color: $dark_text_color;
+  }
   html {
     color-scheme: dark;
   }
   body {
+    .code {
+      background: #111;
+    }
+    .logo img {
+      filter: invert(1);
+    }
     .ant-layout,
     .ant-card,
     .ant-layout-footer {
+      footer,
       .ant-card-bordered {
         border-color: $dark_border_color;
       }
