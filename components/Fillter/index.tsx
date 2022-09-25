@@ -5,7 +5,7 @@ import styles from '@/components/CryptoExchange/CryptoExchange.module.scss'
 const Filler = () => {
   return (
     <>
-      <Col xs={24} sm={16} md={12} lg={8}>
+      <Col xs={24} sm={24} md={12} lg={8}>
         <Card className={styles.card}>
           <Meta
             title={<div className={styles.name}></div>}

@@ -1,5 +1,6 @@
 import LayoutExchange from './Exchange'
 import LayoutListing from './Listing'
+import styles from './Layout.module.scss'
 
 export interface ILayoutProps<T = any> {
   variant?: 'listing' | 'exchange'
@@ -14,7 +15,13 @@ const Layout = <T extends ILayoutProps>({
   children,
 }: T) => {
   const LayoutVariant = LAYOUT_VARIANTS[variant]
-  return <LayoutVariant>{children}</LayoutVariant>
+  return (
+    <>
+      <main className={styles.main}>
+        <LayoutVariant>{children}</LayoutVariant>
+      </main>
+    </>
+  )
 }
 
 export default Layout

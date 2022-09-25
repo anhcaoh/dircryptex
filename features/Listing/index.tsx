@@ -12,7 +12,7 @@ const Listing = () => {
     if (!exchanges?.length) return null
     return (
       <Row>
-        {exchanges.splice(0, 10).map((exchange, index) => {
+        {exchanges.map((exchange, index) => {
           return (
             <CryptoExchange
               key={exchange.id}
@@ -27,11 +27,11 @@ const Listing = () => {
       </Row>
     )
   }
-  const [cryptoExchanges, loading, error] = useCryptoExchanges()
+  const [exchanges, loading, error] = useCryptoExchanges()
   if (error) return <h2>Something went wrong. {error?.message}</h2>
   return (
     <Skeleton loading={loading}>
-      <CryptoExchanges exchanges={cryptoExchanges} />
+      <CryptoExchanges exchanges={exchanges} />
     </Skeleton>
   )
 }

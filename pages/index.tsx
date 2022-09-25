@@ -17,9 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout variant="listing">
-        <main className={styles.main}>
-          <Dircryptex styles={styles} />
-        </main>
+        <Dircryptex styles={styles} />
         <Footer>
           <footer className={styles.footer}>
             <a
