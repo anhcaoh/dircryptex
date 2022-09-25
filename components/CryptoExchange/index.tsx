@@ -1,4 +1,11 @@
 import { Avatar, Card, Col, Typography } from 'antd'
+import {
+  RedditOutlined,
+  FacebookOutlined,
+  TwitterOutlined,
+  SlackOutlined,
+  GlobalOutlined,
+} from '@ant-design/icons'
 import Meta from 'antd/lib/card/Meta'
 import Link from 'next/link'
 import styles from './CryptoExchange.module.scss'
@@ -13,8 +20,13 @@ export interface ICryptoExchangeInfo {
   trust_score: number
   trust_score_rank: number
   year_established: number
-  // year_of_establishment,
-  //   year of establishment, social media links, description
+  facebook_url: string
+  reddit_url: string
+  telegram_url: string
+  slack_url: string
+  other_url_1: string
+  other_url_2: string
+  twitter_handle: string
 }
 export interface ICryptoExchange {
   _key?: string
@@ -34,6 +46,13 @@ const CryptoExchange = ({
     image,
     trust_score_rank,
     year_established,
+    facebook_url,
+    reddit_url,
+    telegram_url,
+    slack_url,
+    other_url_1,
+    other_url_2,
+    twitter_handle,
   },
 }: ICryptoExchange) => {
   return (
@@ -80,9 +99,79 @@ const CryptoExchange = ({
                   {description}
                 </Typography.Paragraph>
               )}
-              <a href={url} rel="noreferrer" target="_blank">
-                <u>{url}</u> →
-              </a>
+              <Typography.Paragraph>
+                <GlobalOutlined />
+                {'  '}
+                <a href={url} rel="noreferrer" target="_blank">
+                  {url} →
+                </a>
+              </Typography.Paragraph>
+              {facebook_url && (
+                <Typography.Paragraph>
+                  <FacebookOutlined />
+                  {'  '}
+                  <a href={facebook_url} rel="noreferrer" target="_blank">
+                    {facebook_url} →
+                  </a>
+                </Typography.Paragraph>
+              )}
+              {twitter_handle && (
+                <Typography.Paragraph>
+                  <TwitterOutlined />
+                  {'  '}
+                  <a
+                    href={`https://twitter.com/ ${twitter_handle}`}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    @{twitter_handle} →
+                  </a>
+                </Typography.Paragraph>
+              )}
+              {reddit_url && (
+                <Typography.Paragraph>
+                  <RedditOutlined />{' '}
+                  <a href={reddit_url} rel="noreferrer" target="_blank">
+                    {reddit_url} →
+                  </a>
+                </Typography.Paragraph>
+              )}
+              {telegram_url && (
+                <Typography.Paragraph>
+                  <GlobalOutlined />
+                  {'  '}
+                  <a href={telegram_url} rel="noreferrer" target="_blank">
+                    {telegram_url} →
+                  </a>
+                </Typography.Paragraph>
+              )}
+              {slack_url && (
+                <Typography.Paragraph>
+                  <SlackOutlined />
+                  {'  '}
+                  <a href={slack_url} rel="noreferrer" target="_blank">
+                    {slack_url} →
+                  </a>
+                </Typography.Paragraph>
+              )}
+              {other_url_1 && (
+                <Typography.Paragraph>
+                  <GlobalOutlined />
+                  {'  '}
+                  <a href={other_url_1} rel="noreferrer" target="_blank">
+                    {other_url_1} →
+                  </a>
+                </Typography.Paragraph>
+              )}
+              {other_url_2 && (
+                <Typography.Paragraph>
+                  <GlobalOutlined />
+                  {'  '}
+                  <a href={other_url_2} rel="noreferrer" target="_blank">
+                    {other_url_2} →
+                  </a>
+                </Typography.Paragraph>
+              )}
             </>
           }
         />

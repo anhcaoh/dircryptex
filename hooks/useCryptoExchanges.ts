@@ -20,9 +20,10 @@ export interface IExchangesAllResponse {
 }
 
 export interface IUseCryptoExchangesProps {
+  id?: string
   limit?: number
 }
-const useCryptoExchanges =  ({limit}: IUseCryptoExchangesProps = { limit : 10}) => {
+const useCryptoExchanges =  ({id, limit}: IUseCryptoExchangesProps = { limit : 10}) => {
   const params = useMemo(() => ({per_page: limit, page: 1}),[limit])
   const [cryptoExchanges, setCryptoExchanges] = useState<any[]>([])
   const [loading, setLoading] = useState(true) //loading started as this hook being used
@@ -44,16 +45,33 @@ const useCryptoExchanges =  ({limit}: IUseCryptoExchangesProps = { limit : 10}) 
       setTimeout(()=> setLoading(false), 500) // So it doesn't feel too flickery (i.e. pause .5s and render cards)
     }
   },[params, dispatch, limitRecords])
+  const fetchCrypoExchangeById = useCallback(async(id:string) => {
+    try {
+      let response = await CoinGeckoAPIClient.exchanges.fetch(id) as any
+      if( response.code === 200 && response.data ) {
+        setCryptoExchanges([response.data])
+      }
+    }
+    catch (error:any) {
+      setError(error)
+    } finally {
+      setTimeout(()=> setLoading(false), 500) // So it doesn't feel too flickery (i.e. pause .5s and render cards)
+    }
+  },[])
   
   useEffect(() => {
-    // if not yet fetched (null) then fetch
-    // otherwise set exchanges from store
-    if(storedExchanges === null) fetchCrypoExchanges()
-    else { 
-      setCryptoExchanges(limitRecords(storedExchanges))
-      setLoading(false)
-    }
-  },[fetchCrypoExchanges, storedExchanges, limitRecords ])
+    if( id ){ 
+      fetchCrypoExchangeById(id)
+    } else {
+      // if not yet fetched (null) then fetch
+      // otherwise set exchanges from store
+      if(storedExchanges === null) fetchCrypoExchanges()
+      else { 
+        setCryptoExchanges(limitRecords(storedExchanges))
+        setLoading(false)
+      }
+    } 
+  },[id, fetchCrypoExchanges, fetchCrypoExchangeById, storedExchanges, limitRecords ])
   
   return [cryptoExchanges, loading, error] as [any[], boolean, any]
 }
