@@ -15,9 +15,7 @@ const Dircryptex = ({ styles = {} }: IDircryptexProps) => {
     <>
       <Col span={24}>
         <h2 className={styles.title}>Dircryptex</h2>
-        <p className={styles.description}>
-          Directory of cryptocurrency exchanges
-        </p>
+        <p className={styles.description}>Directory of Top Crypto Exchanges</p>
         <Listing />
       </Col>
     </>

@@ -1,6 +1,6 @@
 import { Card, Col, Typography } from 'antd'
 import Meta from 'antd/lib/card/Meta'
-import styles from '@/components/CryptoExchange/CryptoExchange.module.css'
+import styles from '@/components/CryptoExchange/CryptoExchange.module.scss'
 
 const Filler = () => {
   return (

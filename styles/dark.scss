@@ -1,0 +1,23 @@
+@import './var';
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    .ant-layout,
+    .ant-card,
+    .ant-layout-footer {
+      .ant-card-bordered {
+        border-color: $dark_border_color;
+      }
+      &, .ant-tag{
+        background: $dark_background_color;
+      }
+    }
+    *, 
+    .ant-card-meta-detail,
+    .ant-typography{
+      color: $dark_text_color;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { Avatar, Card, Col, Tag, Typography } from 'antd'
 import Meta from 'antd/lib/card/Meta'
-import styles from './CryptoExchange.module.css'
+import styles from './CryptoExchange.module.scss'
 
 export interface ICryptoExchange {
   info: {
@@ -27,14 +27,15 @@ const CryptoExchange = ({
   },
 }: ICryptoExchange) => {
   return (
-    <Col span={8}>
+    <Col span={8} id={id}>
       <Card>
         <Meta
           avatar={<Avatar src={image} />}
           title={
             <div className={styles.name}>
-              {name}{' '}
+              {name}
               <Tag
+                style={{ marginLeft: '8px' }}
                 color={
                   trust_score_rank < 3
                     ? 'volcano'
