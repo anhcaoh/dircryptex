@@ -49,7 +49,10 @@ const useCryptoExchanges =  ({limit}: IUseCryptoExchangesProps = { limit : 10}) 
     // if not yet fetched (null) then fetch
     // otherwise set exchanges from store
     if(storedExchanges === null) fetchCrypoExchanges()
-    else setCryptoExchanges(limitRecords(storedExchanges))
+    else { 
+      setCryptoExchanges(limitRecords(storedExchanges))
+      setLoading(false)
+    }
   },[fetchCrypoExchanges, storedExchanges, limitRecords ])
   
   return [cryptoExchanges, loading, error] as [any[], boolean, any]

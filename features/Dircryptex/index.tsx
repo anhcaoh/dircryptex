@@ -1,6 +1,7 @@
 // INFO: `Dircryptex` as main feature app component
 // as the main orchestration layer
 
+import Branding from '@/components/Branding'
 import Listing from '@/features/Listing'
 import { Col } from 'antd'
 
@@ -14,8 +15,7 @@ const Dircryptex = ({ styles = {} }: IDircryptexProps) => {
   return (
     <>
       <Col span={24}>
-        <h2 className={styles.title}>Dircryptex</h2>
-        <p className={styles.description}>Directory of Top Crypto Exchanges</p>
+        <Branding styles={styles} />
         <Listing />
       </Col>
     </>

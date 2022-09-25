@@ -1,5 +1,4 @@
-import { Button, Layout } from 'antd'
-import Link from 'next/link'
+import { Button, Col, Layout } from 'antd'
 import { useRouter } from 'next/router'
 import { ILayoutProps } from '.'
 
@@ -9,12 +8,14 @@ const LayoutExchange = <T extends ILayoutListingProps>({ children }: T) => {
   const goBackQuitely = () => router.push('/', undefined, { shallow: true })
   return (
     <Layout>
-      <Layout>
-        <Button type="link" onClick={goBackQuitely}>
-          ← Go back
-        </Button>
-      </Layout>
-      <Layout>{children}</Layout>
+      <Col span={24}>
+        <Layout>
+          <Button type="link" onClick={goBackQuitely}>
+            ← Go back
+          </Button>
+        </Layout>
+        <Layout>{children}</Layout>
+      </Col>
     </Layout>
   )
 }

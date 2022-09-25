@@ -1,6 +1,6 @@
 @import './var';
 
-.container {
+%container{
   padding: 0;
 }
 %main{
@@ -12,6 +12,9 @@
   justify-content: center;
   align-items: center;
   background: $background_color;
+}
+.container {
+  @extend %container
 }
 .main {
   @extend %main
@@ -44,9 +47,8 @@
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  margin: 0 !important;
+  font-size: 4rem !important; //override .ant-typography
 }
 
 .title,
@@ -55,9 +57,7 @@
 }
 
 .description {
-  margin: 1rem 0;
-  line-height: 1.5;
-  font-size: 1.195rem;
+  font-size: 1.235rem !important; //override .ant-typography
 }
 
 .code {

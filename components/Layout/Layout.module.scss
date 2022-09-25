@@ -1,5 +1,7 @@
 @import "@/styles/Home.module.scss";
-
+.container{
+  @extend %container
+}
 .main {
   @extend %main
 }
