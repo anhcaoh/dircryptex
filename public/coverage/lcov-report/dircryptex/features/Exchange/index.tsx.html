@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>3/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -112,15 +112,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,15 +150,15 @@ import { Row, Typography } from 'antd'
 export interface IExchangeFeatProps {
   id: string
 }
-const ExchangeFeat = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >&lt;T</span> extends IExchangeFeatProps&gt;({ id }: T) =&gt; {</span>
-  const [exchanges, loading, error] = <span class="cstat-no" title="statement not covered" >useCryptoExchanges({ id: id })</span>
-  const exchangeFromStoreById = <span class="cstat-no" title="statement not covered" >useAppSelector(</span>
-<span class="fstat-no" title="function not covered" >    (s</span>tore) =&gt;
-<span class="cstat-no" title="statement not covered" >      store.listing.cryptoExchanges?.filter(<span class="fstat-no" title="function not covered" >(e</span>xchange) =&gt; <span class="cstat-no" title="statement not covered" >exchange.id === id)</span>[0]</span>
+const ExchangeFeat = &lt;T extends IExchangeFeatProps&gt;({ id }: T) =&gt; {
+  const [exchanges, loading, error] = useCryptoExchanges({ id: id })
+  const exchangeFromStoreById = useAppSelector(
+    (store) =&gt;
+      store.listing.cryptoExchanges?.filter(<span class="fstat-no" title="function not covered" >(e</span>xchange) =&gt; <span class="cstat-no" title="statement not covered" >exchange.id === id)</span>[0]
   )
-<span class="cstat-no" title="statement not covered" >  if (!loading &amp;&amp; error) <span class="cstat-no" title="statement not covered" >return &lt;Typography&gt;Something went wrong&lt;/Typography&gt;</span></span>
-<span class="cstat-no" title="statement not covered" >  if (!exchanges?.length)</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!loading &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >error)</span> <span class="cstat-no" title="statement not covered" >return &lt;Typography&gt;Something went wrong&lt;/Typography&gt;</span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!exchanges?.length)
+    return (
       &lt;Typography style={{ marginTop: '2.5rem' }}&gt;
         No exchange found by ID &lt;code&gt;{id}&lt;/code&gt;
       &lt;/Typography&gt;
@@ -184,7 +184,7 @@ export default ExchangeFeat
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-26T03:58:33.022Z
+                at 2022-09-26T17:14:23.014Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

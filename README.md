@@ -1,5 +1,6 @@
-![Dircrytex](/public/Branding.png?raw=true "Dircrytex")
-![Dircrytex](/public/PoweredByCoinGecko.png?raw=true "Dircrytex")
+![App Running](/public/AppRunning.png?raw=true 'App Running')
+![Powered by CoinGecko](/public/PoweredByCoinGecko.png?raw=true 'Powered by CoinGecko')
+![yarn build && yarn lint passed](/public/yarn_build_and_lint_passed.png?raw=true 'yarn build && yarn lint passed')
 
 ---
 
@@ -10,9 +11,48 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+# download the project from Github
+git clone https://github.com/anhcaoh/dircryptex.git
+```
+
+Install NPM dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+Start local dev:
+
+```bash
 npm run dev
 # or
 yarn dev
+```
+
+Build the app:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+Run test and check ESLint:
+
+```bash
+npm run test
+# or
+yarn test
+```
+
+Run end-to-end Cypress test: Make sure start local dev at 3000 first
+
+```bash
+npm run cypress
+# or
+yarn cypress
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
