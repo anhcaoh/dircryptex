@@ -1,6 +1,12 @@
 import { Space, Typography } from 'antd'
 
-const Branding = ({ styles, title, description, CTA }: any) => {
+export interface IBrandingProps {
+  styles?: object | any
+  title?: string
+  description?: string
+  CTA?: JSX.Element | JSX.Element[] | any
+}
+const Branding = ({ styles = {}, title, description, CTA }: IBrandingProps) => {
   return (
     <Space direction="vertical" align="center" style={{ width: '100%' }}>
       <Typography.Title level={1} className={styles.title}>
