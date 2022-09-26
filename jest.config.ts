@@ -16,6 +16,7 @@ const config: Config = {
     '^.+\\.(css|scss|sass)$': 'jest-scss-transform',
   },
   moduleNameMapper: {
+    '^@/app/(.*)$': '<rootDir>/app/$1',
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/hooks/(.*)$': '<rootDir>/hooks/$1',
     '^@/features/(.*)$': '<rootDir>/features/$1',
