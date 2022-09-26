@@ -1,6 +1,6 @@
 @import '~antd/dist/antd.css';
 @import './_var.scss';
-@import './dark.scss';
+// @import './dark.scss';
 
 html,
 body {
@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: $background_color;
 }
 
 a {

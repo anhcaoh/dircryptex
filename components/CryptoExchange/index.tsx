@@ -82,16 +82,26 @@ const CryptoExchange = ({
           description={
             <>
               <Typography.Paragraph className={styles.country}>
-                {country ? `📍 Location: ${country}` : null}
+                📍 Location:{' '}
+                {
+                  <Typography.Text strong>
+                    {country ?? <code>unknown</code>}
+                  </Typography.Text>
+                }
               </Typography.Paragraph>
               <Typography.Paragraph className={styles.yearEstablished}>
-                {year_established ? `🗓 Year Est. ${year_established}` : null}
+                {year_established ? (
+                  <>
+                    🗓 Year Est.{' '}
+                    <Typography.Text strong>{year_established}</Typography.Text>
+                  </>
+                ) : null}
               </Typography.Paragraph>
               {description && (
                 <Typography.Paragraph
                   className={styles.description}
                   ellipsis={{
-                    rows: 2,
+                    rows: 2, // just for show (of feature available) here, don't really need to ellipsis on details page
                     expandable: true,
                   }}
                   title={description}
@@ -99,7 +109,7 @@ const CryptoExchange = ({
                   {description}
                 </Typography.Paragraph>
               )}
-              <Typography.Paragraph>
+              <Typography.Paragraph className={styles.url}>
                 <GlobalOutlined />
                 {'  '}
                 <a href={url} rel="noreferrer" target="_blank">
@@ -107,7 +117,7 @@ const CryptoExchange = ({
                 </a>
               </Typography.Paragraph>
               {facebook_url && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={styles.url}>
                   <FacebookOutlined />
                   {'  '}
                   <a href={facebook_url} rel="noreferrer" target="_blank">
@@ -116,7 +126,7 @@ const CryptoExchange = ({
                 </Typography.Paragraph>
               )}
               {twitter_handle && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={styles.url}>
                   <TwitterOutlined />
                   {'  '}
                   <a
@@ -129,7 +139,7 @@ const CryptoExchange = ({
                 </Typography.Paragraph>
               )}
               {reddit_url && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={styles.url}>
                   <RedditOutlined />{' '}
                   <a href={reddit_url} rel="noreferrer" target="_blank">
                     {reddit_url} →
@@ -137,7 +147,7 @@ const CryptoExchange = ({
                 </Typography.Paragraph>
               )}
               {telegram_url && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={styles.url}>
                   <GlobalOutlined />
                   {'  '}
                   <a href={telegram_url} rel="noreferrer" target="_blank">
@@ -146,7 +156,7 @@ const CryptoExchange = ({
                 </Typography.Paragraph>
               )}
               {slack_url && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={styles.url}>
                   <SlackOutlined />
                   {'  '}
                   <a href={slack_url} rel="noreferrer" target="_blank">
@@ -155,7 +165,7 @@ const CryptoExchange = ({
                 </Typography.Paragraph>
               )}
               {other_url_1 && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={styles.url}>
                   <GlobalOutlined />
                   {'  '}
                   <a href={other_url_1} rel="noreferrer" target="_blank">
@@ -164,7 +174,7 @@ const CryptoExchange = ({
                 </Typography.Paragraph>
               )}
               {other_url_2 && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={styles.url}>
                   <GlobalOutlined />
                   {'  '}
                   <a href={other_url_2} rel="noreferrer" target="_blank">

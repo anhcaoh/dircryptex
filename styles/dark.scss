@@ -8,6 +8,11 @@
     color-scheme: dark;
   }
   body {
+    &, main,
+    button {
+      background: $dark_background_color !important;
+      color: $dark_text_color !important;
+    }
     .code {
       background: #111;
     }

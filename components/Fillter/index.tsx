@@ -18,6 +18,7 @@ const Filler = () => {
                   className={styles.description}
                 ></Typography.Paragraph>
                 <div className={styles.url}></div>
+                <div className={styles.filler}></div>
               </>
             }
           ></Meta>

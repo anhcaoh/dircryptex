@@ -61,14 +61,15 @@ const useCryptoExchanges =  ({id, limit}: IUseCryptoExchangesProps = { limit : 1
   
   useEffect(() => {
     if( id ){ 
+      // if single exchange then fetch by exchange id
       fetchCrypoExchangeById(id)
-    } else {
+    } else { // otherwise
       // if not yet fetched (null) then fetch
       // otherwise set exchanges from store
       if(storedExchanges === null) fetchCrypoExchanges()
       else { 
-        setCryptoExchanges(limitRecords(storedExchanges))
-        setLoading(false)
+        setCryptoExchanges(limitRecords(storedExchanges)) // set to local state
+        setLoading(false) //loading is done
       }
     } 
   },[id, fetchCrypoExchanges, fetchCrypoExchangeById, storedExchanges, limitRecords ])
