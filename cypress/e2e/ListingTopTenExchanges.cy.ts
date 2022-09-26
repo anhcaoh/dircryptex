@@ -1,7 +1,8 @@
 /* eslint-disable jest/expect-expect */
-describe('Dircryptex Listing', () => {
+describe('Listing Top 10 Crypto Exchanges', () => {
+  const url = Cypress.env('url');
+  const api = Cypress.env('api')
   beforeEach(() => {
-    const url = Cypress.env('url');
     cy.visit(url)
   })
   it('should display heading h1 Dircryptex', () => {
@@ -11,7 +12,12 @@ describe('Dircryptex Listing', () => {
     cy.get('footer').should('be.visible').contains('Powered by')
   })
   it('should list top ten crypto exchanges', () => {
-    cy.get('img').should('have.length', 12)  // top 10 + 2 filler  
-    cy.get('.ant-card').should('have.length', 12)  // top 10 + 2 filler 
+    cy.intercept({url: `${api}/exchanges`}).as('getExchanges')
+    
+    cy.get('*[id^=exchange-]').should('have.length', 10)  // top 10 with id="exchange-{id}" 
+    
+    cy.wait('@getExchanges')
+    .its('response.statusCode')
+    .should('eq',200)
   })
 })

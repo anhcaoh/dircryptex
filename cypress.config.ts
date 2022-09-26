@@ -15,6 +15,7 @@ export default defineConfig({
     },
   },
   env:{
-    "url": "http://localhost:3000"
+    "url": "http://localhost:3000",
+    "api":"https://api.coingecko.com/api/v3"
   }
 });
