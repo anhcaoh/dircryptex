@@ -3017,6 +3017,11 @@ jest-runtime@^29.0.3:
     slash "^3.0.0"
     strip-bom "^4.0.0"
 
+jest-scss-transform@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/jest-scss-transform/-/jest-scss-transform-1.0.3.tgz#448b0d3e548a8889e444eab53c1deb3646468c86"
+  integrity sha512-e9MBgPIYbjBN86DC3xKBGAtWUnR43r8NSzsrWxCF8+5WD1maDbWI7bOW1AygVxdzMNCrqjh5pvHqJ9vMzoyebQ==
+
 jest-snapshot@^29.0.3:
   version "29.0.3"
   resolved "https://registry.yarnpkg.com/jest-snapshot/-/jest-snapshot-29.0.3.tgz#0a024706986a915a6eefae74d7343069d2fc8eef"

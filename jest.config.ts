@@ -13,6 +13,7 @@ const config: Config = {
         presets: ['next/babel'],
       },
     ],
+    '^.+\\.(css|scss|sass)$': 'jest-scss-transform',
   },
   moduleNameMapper: {
     '^@/components/(.*)$': '<rootDir>/components/$1',

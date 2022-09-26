@@ -1,6 +1,6 @@
 import { Footer as FooterLayout } from 'antd/lib/layout/layout'
 import Image from 'next/image'
-const Footer = ({ styles }: any) => {
+const Footer = ({ styles = {} }: any) => {
   return (
     <>
       <FooterLayout>
