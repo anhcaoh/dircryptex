@@ -31,7 +31,14 @@ const ListingFeat = () => {
                 url,
                 trust_score_rank,
               } as ICryptoExchangeInfo
-              return <CryptoExchange key={_key} id={id} info={highLevelInfo} />
+              return (
+                <CryptoExchange
+                  key={_key}
+                  _key={_key}
+                  id={id}
+                  info={highLevelInfo}
+                />
+              )
             }
           )}
           {/* INFO: Filler for empty space*/}
